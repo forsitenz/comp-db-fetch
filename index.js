@@ -11,14 +11,14 @@
 
             if ( !client ) {
 
-                winston.info( `DATABASE_URI: ${process.env.DATABASE_URI}`);
+                winston.info( `DATABASE_URL: ${process.env.DATABASE_URL}`);
                 winston.info( `PGHOST:       ${process.env.PGHOST}`);
                 winston.info( `PGUSER:       ${process.env.PGUSER}`);
                 winston.info( `PGDATABASE:   ${process.env.PGDATABASE}`);
                 winston.info( `PGPASSWORD:   ${process.env.PGPASSWORD}`);
                 winston.info( `PGPORT:       ${process.env.PGPORT}`);
 
-                client = new Client( process.env.DATABASE_URI );
+                client = new Client( process.env.DATABASE_URL );
 
                 await client.connect();
             }
