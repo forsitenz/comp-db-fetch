@@ -1,0 +1,20 @@
+{
+  "name": "comp-pg-retriever",
+  "version": "1.0.0",
+  "description": "retriever data from postgres",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ay_forsite@bitbucket.org/forsitedevelopers/comp-pg-retriever.git"
+  },
+  "author": "dev@forsitenz.com",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/forsitedevelopers/comp-pg-retriever#readme",
+  "dependencies": {
+    "pg": "^7.1.0",
+    "winston": "^2.3.1"
+  }
+}
