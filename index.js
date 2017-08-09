@@ -11,15 +11,16 @@
         // connect to postgres ONCE
         // Then the client will be reused;
 
-        winston.info( process.env.PGHOST);
-        winston.info( process.env.PGUSER);
-        winston.info( process.env.PGDATABASE);
-        winston.info( process.env.PGPASSWORD);
-        winston.info( process.env.PGPORT);
+        winston.info( `DATABASE_URI: ${process.env.DATABASE_URI}`);
+        winston.info( `PGHOST:       ${process.env.PGHOST}`);
+        winston.info( `PGUSER:       ${process.env.PGUSER}`);
+        winston.info( `PGDATABASE:   ${process.env.PGDATABASE}`);
+        winston.info( `PGPASSWORD:   ${process.env.PGPASSWORD}`);
+        winston.info( `PGPORT:       ${process.env.PGPORT}`);
 
         try {
 
-            await client.connect();
+            await client.connect( process.env.DATABASE_URI );
 
         } catch( connection_err ){
 
