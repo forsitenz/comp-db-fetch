@@ -11,6 +11,12 @@
         // connect to postgres ONCE
         // Then the client will be reused;
 
+        winston.info( process.env.PGHOST);
+        winston.info( process.env.PGUSER);
+        winston.info( process.env.PGDATABASE);
+        winston.info( process.env.PGPASSWORD);
+        winston.info( process.env.PGPORT);
+
         try {
 
             await client.connect();
@@ -31,12 +37,14 @@
 
         try {
 
-            return await client.query( SQL_QUERY );
+            return await client.query( SQL_QUERY ); // If query successful it MUST ALWAYS return an array.
 
         } catch( query_error ) {
 
             winston.error( query_error );
 
+            throw query_error; // If there is a query error, MUST ALWAYS pass the error up the chain.  Do not
+                               // handle errors here
 
         }
 
