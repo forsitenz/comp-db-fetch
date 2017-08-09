@@ -3,7 +3,7 @@
 
     const winston = require("winston");
     const { Client } = require('pg');
-    const client = new Client();
+    let client;
 
     ( async function(){
 
@@ -20,11 +20,13 @@
 
         try {
 
-            await client.connect( process.env.DATABASE_URI );
+            client = new Client( process.env.DATABASE_URI );
+
+            await client.connect();
 
         } catch( connection_err ){
 
-            winston.error( connection_err );
+            winston.error( `CONNECTION ERROR: ${connection_err}` );
 
         }
 
@@ -42,7 +44,7 @@
 
         } catch( query_error ) {
 
-            winston.error( query_error );
+            winston.error( `QUERY ERROR: ${query_error}` );
 
             throw query_error; // If there is a query error, MUST ALWAYS pass the error up the chain.  Do not
                                // handle errors here

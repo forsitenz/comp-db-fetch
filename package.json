@@ -1,6 +1,6 @@
 {
   "name": "comp-pg-retriever",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "retriever data from postgres",
   "main": "index.js",
   "scripts": {
